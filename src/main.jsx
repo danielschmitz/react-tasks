@@ -5,6 +5,7 @@ import './index.css'
 import '@picocss/pico'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HelloWorld from './pages/hello-world'
+import NewTask from './pages/new-task'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/hello-world",
         element: <HelloWorld/>
+      },
+      {
+        path: "/new-task",
+        element: <NewTask/>
       }
     ]
   },
