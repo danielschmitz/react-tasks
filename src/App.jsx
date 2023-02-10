@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import ToDoList from "./components/todo-list"
 
 export default function App() {
 
@@ -13,9 +14,7 @@ export default function App() {
         </ul>
       </nav>
       <Outlet></Outlet>
-      <article>
-        todos....
-        </article>
+      <ToDoList/>
     </div>
   )
 }
