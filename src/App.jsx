@@ -1,11 +1,14 @@
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import TaskList from "./components/task-list"
+import service from "./service"
 
 export default function App() {
   const tasks = useLoaderData();
 
   const handleTaskChanged = task => {
-    console.log('handleTaskChanged', task);
+    service.update(task).then( data => {
+      console.log('updated',data)
+    })    
   }
 
   return (
