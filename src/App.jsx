@@ -13,6 +13,7 @@ export default function App() {
 
   const location = useLocation() // hack to reload data every time the page is re-rendered
   useEffect(() => {
+    console.log('refresh')
     service
       .getAll()
       .then(response => response.json())

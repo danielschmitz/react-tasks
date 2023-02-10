@@ -2,7 +2,7 @@ import config from "./config"
 
 const service = {
     getAll: () => {
-        return fetch(`${config.api}/tasks/`)
+        return fetch(`${config.api}/tasks?_sort=id&_order=desc`)
     },
     update: task => {
         const requestOptions = {
