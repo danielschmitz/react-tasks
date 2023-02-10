@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function App() {
 
@@ -6,7 +6,7 @@ export default function App() {
     <div className="container">
       <nav>
         <ul>
-          <li><strong>Todo List</strong></li>
+          <li><h1>Todo List</h1></li>
         </ul>
         <ul>
           <li><Link role="button" to='/new-task'>New</Link></li>
