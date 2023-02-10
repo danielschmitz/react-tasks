@@ -5,10 +5,9 @@ import service from "./service"
 export default function App() {
   const tasks = useLoaderData();
 
-  const handleTaskChanged = task => {
-    service.update(task).then( data => {
-      console.log('updated',data)
-    })    
+  const handleTaskChanged = async task => {
+    const data = await service.update(task)   
+    console.log('updated',data)
   }
 
   return (
