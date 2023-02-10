@@ -4,14 +4,21 @@ const service = {
     getAll: () => {
         return fetch(`${config.api}/tasks/`)
     },
-    update: async task => {
+    update: task => {
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(task)
         };
-        const data = await fetch(`${config.api}/tasks/${task.id}`, requestOptions)
-        return data.json()
+        return fetch(`${config.api}/tasks/${task.id}`, requestOptions)
+    },
+    create: task => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(task)
+        };
+        return fetch(`${config.api}/tasks`, requestOptions)
     }
 }
 
