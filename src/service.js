@@ -26,8 +26,7 @@ const service = {
     delete: (id) => {
         const requestOptions = {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(task)
+            headers: { 'Content-Type': 'application/json' }
         };
         return fetch(`${config.api}/tasks/${id}`, requestOptions)
     }

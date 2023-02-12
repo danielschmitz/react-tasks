@@ -18,12 +18,11 @@ export default function EditTask() {
             .then(data => setTask(data))
     }, [location.key])
 
-    const navigate = useNavigate();
-
     const handleChange = (e) => {
         setTask({ ...task, [e.target.name]: e.target.value })
     }
 
+    const navigate = useNavigate();
     const handleTaskEdit = (e) => {
         e.preventDefault()
         service.update(task).then(() => navigate('/'))

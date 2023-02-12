@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 
-export default function Task({ task, onTaskChanged }) {
+export default function Task({ task, onTaskChanged, onTaskDelete }) {
 
     const [checked, setChecked] = React.useState(task.done);
 
@@ -9,6 +9,13 @@ export default function Task({ task, onTaskChanged }) {
         setChecked(e.target.checked);
         task.done = e.target.checked;
         onTaskChanged(task)
+    }
+
+    const handleDelete = (e) => {
+        e.preventDefault()
+        if (window.confirm(`Delete ${task.title}?`)) {
+            onTaskDelete(task.id)
+        }
     }
 
     return (<li>
@@ -19,7 +26,7 @@ export default function Task({ task, onTaskChanged }) {
                 </span>            
             <span style={{ display: 'flex', justifyContent: 'end', gap: 10 }}>
                 <Link to={`/edit-task/${task.id}`} >Edit</Link>
-                <Link to={`/edit-task/${task.id}`} >Delete</Link>
+                <a href="#" onClick={handleDelete}>Delete</a>
             </span>
         </div>
     </li>)
