@@ -4,7 +4,7 @@ import config from "./config"
 import EditTask, { loader as EditTaskLoader } from "./pages/edit-task"
 import HelloWorld from "./pages/hello-world"
 import ListTask, { loader as ListTasksLoader} from "./pages/list-task"
-import NewTask from "./pages/new-task"
+import NewTask, {action as NewTaskAction} from "./pages/new-task"
 
 export default [
     {
@@ -22,7 +22,8 @@ export default [
             },
             {
                 path: "/new-task",
-                element: <NewTask />
+                element: <NewTask />,
+                action: NewTaskAction
             },
             {
                 path: "/edit-task/:id",

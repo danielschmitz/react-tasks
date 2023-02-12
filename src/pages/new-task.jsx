@@ -1,6 +1,14 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Form, Link, redirect, useNavigate } from 'react-router-dom'
 import { useState } from "react"
 import service from '../service'
+
+export async function action({ request, params }) {
+    console.log({ request, params })
+    const formData = await request.formData();
+    const updates = Object.fromEntries(formData);
+    await service.create(updates)
+    return redirect(`/`)
+}
 
 export default function NewTask() {
 
@@ -21,9 +29,10 @@ export default function NewTask() {
     }
 
     return <>
-        <article>
-            <header>New Task</header>
-            <form>
+        <Form method="post" id="task-form">
+            <article>
+                <header>New Task</header>
+
                 <input type="text"
                     value={task.title}
                     onChange={handleChange}
@@ -31,13 +40,16 @@ export default function NewTask() {
                     name="title"
                     placeholder="Task"
                     required />
-            </form>
-            <footer>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <small><Link to='/'>Return</Link></small>
-                    <a role="button" href="#" onClick={handleTaskAdd}>Add</a>
-                </div>
-            </footer>
-        </article>
+
+                <footer>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <small><Link to='/'>Return</Link></small>
+                        {/* <a role="button" href="#" onClick={handleTaskAdd}>Add</a> */}
+                        <button type="submit">Save</button>
+                    </div>
+                </footer>
+
+            </article>
+        </Form>
     </>
 };
