@@ -4,6 +4,9 @@ const service = {
     getAll: () => {
         return fetch(`${config.api}/tasks?_sort=id&_order=desc`)
     },
+    getTask: (id) => {
+        return fetch(`${config.api}/tasks/${id}`)
+    },
     update: task => {
         const requestOptions = {
             method: 'PUT',
