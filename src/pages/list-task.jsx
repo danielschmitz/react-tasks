@@ -8,8 +8,7 @@ export default function ListTask() {
     const [tasks, setTasks] = useState([])
 
     const handleTaskChanged = async task => {
-        const data = await service.update(task)
-        console.log('updated', data)
+        await service.update(task)
     }
 
     const location = useLocation() // hack to reload data every time the page is re-rendered

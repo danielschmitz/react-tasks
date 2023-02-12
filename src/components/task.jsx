@@ -12,10 +12,16 @@ export default function Task({ task, onTaskChanged }) {
     }
 
     return (<li>
-        <input type="checkbox" onChange={handleChange} checked={checked}></input>
-        {task.title}
-        <Link style={{float:"right"}} to={`/edit-task/${task.id}`} >Edit</Link>
-        <br />
+        <div style={{ display: 'flex', justifyContent: 'space-between', textAlign: 'center' }}>
+            <span>
+                <input type="checkbox" onChange={handleChange} checked={checked}></input>
+                {task.title}
+                </span>            
+            <span style={{ display: 'flex', justifyContent: 'end', gap: 10 }}>
+                <Link to={`/edit-task/${task.id}`} >Edit</Link>
+                <Link to={`/edit-task/${task.id}`} >Delete</Link>
+            </span>
+        </div>
     </li>)
 
 };

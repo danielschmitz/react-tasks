@@ -34,7 +34,7 @@ export default function NewTask() {
             </form>
             <footer>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <small><Link to='/'>Close</Link></small>
+                    <small><Link to='/'>Return</Link></small>
                     <a role="button" href="#" onClick={handleTaskAdd}>Add</a>
                 </div>
             </footer>

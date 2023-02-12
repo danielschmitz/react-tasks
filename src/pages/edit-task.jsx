@@ -24,9 +24,9 @@ export default function EditTask() {
         setTask({ ...task, [e.target.name]: e.target.value })
     }
 
-    const handleTaskAdd = (e) => {
+    const handleTaskEdit = (e) => {
         e.preventDefault()
-        service.create(task).then(() => navigate('/'))
+        service.update(task).then(() => navigate('/'))
     }
 
     return <>
@@ -43,8 +43,8 @@ export default function EditTask() {
             </form>
             <footer>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <small><Link to='/'>Close</Link></small>
-                    <a role="button" href="#" onClick={handleTaskAdd}>Add</a>
+                    <small><Link to='/'>Return</Link></small>
+                    <a role="button" href="#" onClick={handleTaskEdit}>Save</a>
                 </div>
             </footer>
         </article>

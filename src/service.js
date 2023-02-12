@@ -22,6 +22,14 @@ const service = {
             body: JSON.stringify(task)
         };
         return fetch(`${config.api}/tasks`, requestOptions)
+    },
+    delete: (id) => {
+        const requestOptions = {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(task)
+        };
+        return fetch(`${config.api}/tasks/${id}`, requestOptions)
     }
 }
 
