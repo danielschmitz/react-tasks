@@ -1,22 +1,27 @@
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLoaderData, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import service from '../service'
 
+export function EditTaskLoader({params}) {
+    return service.getTask(params.id)
+}
+
 export default function EditTask() {
 
-    const [task, setTask] = useState({
-        id:0,title:'',done:false
-    })
+    // const [task, setTask] = useState({
+    //     id:0,title:'',done:false
+    // })
+    const task = useLoaderData();
 
     const  { id } = useParams();
 
-    const location = useLocation() 
-    useEffect(() => {
-        service
-            .getTask(id)
-            .then(response => response.json())
-            .then(data => setTask(data))
-    }, [location.key])
+    // const location = useLocation() 
+    // useEffect(() => {
+    //     service
+    //         .getTask(id)
+    //         .then(response => response.json())
+    //         .then(data => setTask(data))
+    // }, [location.key])
 
     const handleChange = (e) => {
         setTask({ ...task, [e.target.name]: e.target.value })

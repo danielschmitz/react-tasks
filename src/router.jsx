@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 import App from "./App"
 import config from "./config"
-import EditTask from "./pages/edit-task"
+import EditTask, { EditTaskLoader } from "./pages/edit-task"
 import HelloWorld from "./pages/hello-world"
-import ListTask from "./pages/list-task"
+import ListTask, { ListTasksLoader} from "./pages/list-task"
 import NewTask from "./pages/new-task"
 
 export default [
@@ -13,6 +13,7 @@ export default [
         children: [
             {
                 path: "/",
+                loader: ListTasksLoader,
                 element: <ListTask />
             },
             {
@@ -25,6 +26,7 @@ export default [
             },
             {
                 path: "/edit-task/:id",
+                loader: EditTaskLoader,
                 element: <EditTask />
             }
         ]
