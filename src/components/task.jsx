@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 
 export default function Task({ task, onTaskChanged }) {
 
@@ -13,6 +14,7 @@ export default function Task({ task, onTaskChanged }) {
     return (<li>
         <input type="checkbox" onChange={handleChange} checked={checked}></input>
         {task.title}
+        <Link style={{float:"right"}} to={`/edit-task/${task.id}`} >Edit</Link>
         <br />
     </li>)
 
