@@ -2,7 +2,7 @@ import { Link, useLoaderData, useLocation, useNavigate, useParams } from 'react-
 import { useEffect, useState } from "react"
 import service from '../service'
 
-export function EditTaskLoader({params}) {
+export function loader({params}) {
     return service.getTask(params.id)
 }
 

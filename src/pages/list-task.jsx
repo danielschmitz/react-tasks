@@ -3,7 +3,7 @@ import service from "../service"
 import TaskList from "../components/task-list"
 import { useEffect, useState } from "react"
 
-export async function ListTasksLoader() {
+export async function loader() {
     return service.getAll()
   }
 

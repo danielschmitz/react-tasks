@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 import App from "./App"
 import config from "./config"
-import EditTask, { EditTaskLoader } from "./pages/edit-task"
+import EditTask, { loader as EditTaskLoader } from "./pages/edit-task"
 import HelloWorld from "./pages/hello-world"
-import ListTask, { ListTasksLoader} from "./pages/list-task"
+import ListTask, { loader as ListTasksLoader} from "./pages/list-task"
 import NewTask from "./pages/new-task"
 
 export default [
