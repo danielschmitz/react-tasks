@@ -1,8 +1,8 @@
 import config from "./config"
 
 const service = {
-    getAll: () => {
-        return fetch(`${config.api}/tasks?_sort=id&_order=desc`)
+    getAll: (q) => {
+        return fetch(`${config.api}/tasks?_sort=id&_order=desc&q=${q}`)
     },
     getTask: (id) => {
         return fetch(`${config.api}/tasks/${id}`)
