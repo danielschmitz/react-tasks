@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
-import { Link, Outlet, useLoaderData, useLocation } from "react-router-dom"
+import { Link, Outlet, useLoaderData, useLocation, useNavigation } from "react-router-dom"
 
 export default function App() {
+
+  const navigation = useNavigation();
+
   return (
     <div className="container">
       <nav>
@@ -13,6 +16,7 @@ export default function App() {
         </ul>
       </nav>
       <Outlet></Outlet>
+      {(navigation.state==='loading'||navigation.state==='submitting')?'loading...':''}
     </div>
   )
 }
