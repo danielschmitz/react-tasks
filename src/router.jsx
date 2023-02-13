@@ -12,7 +12,7 @@ export default [
         element: <App />,
         children: [
             {
-                path: "/",
+                index: true,
                 loader: ListTasksLoader,
                 element: <ListTask />
             },
