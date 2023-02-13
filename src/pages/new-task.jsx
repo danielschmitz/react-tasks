@@ -23,10 +23,10 @@ export default function NewTask() {
         setTask({ ...task, [e.target.name]: e.target.value })
     }
 
-    const handleTaskAdd = (e) => {
-        e.preventDefault()
-        service.create(task).then(() => navigate('/'))
-    }
+    // const handleTaskAdd = (e) => {
+    //     e.preventDefault()
+    //     service.create(task).then(() => navigate('/'))
+    // }
 
     return <>
         <Form method="post" id="task-form">
