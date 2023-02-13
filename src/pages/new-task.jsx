@@ -4,8 +4,8 @@ import service from '../service'
 
 export async function action({ request, params }) {
     console.log({ request, params })
-    const formData = await request.formData();
-    const updates = Object.fromEntries(formData);
+    const formData = await request.formData()
+    const updates = Object.fromEntries(formData)
     await service.create(updates)
     return redirect(`/`)
 }
@@ -17,7 +17,7 @@ export default function NewTask() {
         done: false
     })
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setTask({ ...task, [e.target.name]: e.target.value })
@@ -43,7 +43,15 @@ export default function NewTask() {
 
                 <footer>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <small><Link to='/'>Return</Link></small>
+                        {/* <small><Link to='/'>Return</Link></small> */}
+                        <a href="#" 
+                            type="button"
+                            onClick={() => {
+                                navigate(-1)
+                            }}
+                        >
+                            Cancel
+                        </a>
                         {/* <a role="button" href="#" onClick={handleTaskAdd}>Add</a> */}
                         <button type="submit">Save</button>
                     </div>
